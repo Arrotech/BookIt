@@ -1,0 +1,251 @@
+/*==================== BODY SECTION =====================*/
+
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: Verdana, Helvetica, sans-serif Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 14px;
+	background-color: #252525;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+.row-one{
+  background: #fff;
+  padding: 100px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#header{
+	background-color: #08abdd;
+	height: 90px;
+  padding: 20px;
+  padding: 50px;
+	color: #000000;
+}
+
+#header h3{
+	text-align: center;
+	font-size: 300%;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	margin: 0px;
+}
+
+.addHotel h1{
+	text-align: center;
+}
+
+#navbar{
+	background-color: #000000;
+}
+
+ul{
+  /*list-style-type: none;*/
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000000;
+  width: 100%;
+  padding: 20px;
+}
+
+li{
+  float: right;
+}
+
+li.home{
+	float: left;
+}
+
+li a{
+  display: block;
+  color: white;
+  font-size: 16px;
+  font-weight: bolder;
+  font-style: bold;
+  text-align: center;
+  padding: 14px 16px;
+  list-style: none;
+  text-decoration: none;
+}
+
+li a:hover{
+  background-color: #08abdd;
+  color: #000000;
+  border-radius: 5px;
+}
+
+#btn-1{
+  border-radius: 5px;
+  background: #08abdd;
+  border: none;
+  font-weight: bolder;
+  width: 230px;
+  height: 50px;
+}
+
+#btn-2{
+  border-radius: 5px;
+  font-weight: bolder;
+  background: #000000;
+  border: none;
+  width: 180px;
+  height: 50px;
+  color: #fff;
+}
+
+#btn-1:hover {
+  background-color: #000000; /* Green */
+  color: white;
+}
+
+#btn-2:hover {
+  background-color: #000000; /* Green */
+  color: #08abdd;
+}
+
+.header-content {
+  color: #08abdd;
+  position: relative;
+  -webkit-animation-name: example;  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 3s;  /* Safari 4.0 - 8.0 */
+  -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+  from {top: -60px;}
+  to {top: 10px; color: #08abdd;}
+}
+
+@keyframes example {
+  from {top: -60px;}
+  to {top: 10px; color: #000000;}
+}
+
+/* Style the form */
+.addHotel {
+  background-color: #ffffff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 40%;
+	border-radius: 5px;
+}
+
+.row-two{
+
+	height: 400px;
+	background: #25252525;
+
+}
+
+.row-three{
+
+	height: 400px;
+	background: #fff;
+
+}
+
+.row-four{
+	height: 400px;
+
+}
+
+/* Style the input fields */
+input {
+  padding: 10px;
+  width: 40%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+form input[type="submit"]{
+  background-color:#08abdd;
+  color:#fff;
+  width: 30.5%;
+  font-weight: bold;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+  text-align: center;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #08abdd;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #08abdd;
+}
+
+.ht-btn{
+	background-color: #000000;
+	color: #fff;
+	padding: 5px;
+	border-radius: 3px;
+}
+
+.ht-btn2{
+	background-color: #08abdd;
+	color: #000000;
+	padding: 5px;
+	border-radius: 3px;
+}
+
+/*snack bar css*/
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #08abdd;
+  color: #000000;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 15px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
