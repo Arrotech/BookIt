@@ -19,7 +19,6 @@ def signup():
     details = request.get_json()
     firstname = details['firstname']
     lastname = details['lastname']
-    surname = details['surname']
     phone = details['phone']
     username = details['username']
     email = details['email']
