@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hotels</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css"/>
+  </head>
+  <body>
+    <header>
+      <div id="header">
+        <h3>bookIt.com</h3>
+      </div>
+    </header>
+    <div id="#nav">
+    <nav>
+        <div>
+          <ul>
+            <li class="home"><a href="index.html">BOOKIT</a></li>
+            <li><a href="login.html">LOGIN</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="add_hotel.html">HOTELS</a></li>
+            <li><a href="#trips">TRIPS</a></li>
+            <li><a href="#lodges">LODGES</a></li>
+          </ul>
+        </div>
+    </nav>
+    </div>
+    <form class="addHotel">
+      <h1>Add Hotel</h1>
+
+      <!-- One "tab" for each step in the form: -->
+      <div class="tab">
+        <p><input id="name" placeholder="Name"></p>
+        <p><input id="location" placeholder="Location"></p>
+        <p><input id="lodges" placeholder="No. of Lodges"></p>
+      </div>
+
+      <div class="tab">
+        <p><input id="conference_rooms" placeholder="No. of Confrence Rooms"></p>
+        <p><input id="img_url" placeholder="Picture Link"></p>
+        <p><input id="category" placeholder="Type of Hotel"></p>
+        <p><input type="submit" value="Submit" id="addHotel"></p>
+      </div>
+
+      <div style="overflow:auto;">
+        <div style="float:right;">
+          <button class="ht-btn" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+          <button class="ht-btn2" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        </div>
+      </div>
+
+      <!-- Circles which indicates the steps of the form: -->
+      <div style="text-align:center;margin-top:40px;">
+        <span class="step"></span>
+        <span class="step"></span>
+      </div>
+
+    <div id="snackbar">Just a moment...</div>
+    </form>
+    <script type="text/javascript" src="js/pagination.js"></script>
+    <script type="text/javascript" src="js/add_hotel.js"></script>
+
+  </body>
+</html>
