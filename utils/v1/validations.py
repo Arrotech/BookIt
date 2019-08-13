@@ -25,6 +25,39 @@ def check_login_keys(request):
             errors.append(key)
     return errors
 
+def check_trips_keys(request):
+    res_keys = ["booked_by", "pickup", "destination", "means"]
+    errors = []
+    for key in res_keys:
+        if not key in request.json:
+            errors.append(key)
+    return errors
+
+def check_lodges_keys(request):
+    res_keys = ["booked_by", "hotel_name", "lodge_no"]
+    errors = []
+    for key in res_keys:
+        if not key in request.json:
+            errors.append(key)
+    return errors
+
+def check_hotels_keys(request):
+    res_keys = ["name", "location", "lodges", "conference_rooms", "category"]
+    errors = []
+    for key in res_keys:
+        if not key in request.json:
+            errors.append(key)
+    return errors
+
+def convert_to_int(id):
+    try:
+        value = int(id)
+        if value > 0:
+            return value
+        return raise_error(400, "cannot be a negative number")
+    except Exception as e:
+        return {"message": e}
+
 def is_valid_email(variable):
     """Check if email is a valid mail."""
     if re.match(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+[a-zA-Z0-9-.]+$)",

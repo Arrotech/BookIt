@@ -5,6 +5,9 @@ from flask_jwt_extended import JWTManager
 from flask_restful import Api
 
 from app.api.v1.views.auth_views import auth_v1
+from app.api.v1.views.book_trips import trips_v1
+from app.api.v1.views.book_lodges import lodges_v1
+from app.api.v1.views.add_hotels import hotels_v1
 from app.config import app_config
 
 
@@ -34,6 +37,9 @@ def bookit_app(config_name):
     api = Api(app)
 
     app.register_blueprint(auth_v1, url_prefix='/api/v1/auth/')
+    app.register_blueprint(trips_v1, url_prefix='/api/v1/')
+    app.register_blueprint(lodges_v1, url_prefix='/api/v1/')
+    app.register_blueprint(hotels_v1, url_prefix='/api/v1/')
     app.register_error_handler(404, page_not_found)
     app.register_error_handler(405, method_not_allowed)
 
