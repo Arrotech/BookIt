@@ -2,7 +2,6 @@
 create_account = {
     "firstname": "Peter",
     "lastname": "Gitundu",
-    "surname": "Gitundu",
     "phone": "0720930988",
     "location": "Nakuru, Njoro",
     "portfolio": "Education",
@@ -16,7 +15,6 @@ create_account = {
 new_account = {
     "firstname": "Harun",
     "lastname": "Gachanja",
-    "surname": "Gitundu",
     "phone": "0711371265",
     "location": "Nakuru, Njoro",
     "portfolio": "Education",
@@ -30,7 +28,6 @@ new_account = {
 wrong_account_keys = {
     "firstname": "Harun",
     "lastname": "Gachanja",
-    "surname": "Gitundu",
     "phone": "0711371265",
     "location": "Nakuru, Njoro",
     "portfolio": "Education",
@@ -44,7 +41,6 @@ wrong_account_keys = {
 wrong_account_firstname = {
     "firstname": "Ha  run",
     "lastname": "Gachanja",
-    "surname": "Gitundu",
     "phone": "0711371265",
     "location": "Nakuru, Njoro",
     "portfolio": "Education",
@@ -58,7 +54,6 @@ wrong_account_firstname = {
 wrong_account_lastname = {
     "firstname": "Harun",
     "lastname": "Gacha nja",
-    "surname": "Gitundu",
     "phone": "0711371265",
     "location": "Nakuru, Njoro",
     "portfolio": "Education",
@@ -72,7 +67,6 @@ wrong_account_lastname = {
 wrong_account_phone = {
     "firstname": "Harun",
     "lastname": "Gachanja",
-    "surname": "Gitundu",
     "phone": "6711371265",
     "location": "Nakuru, Njoro",
     "portfolio": "Education",
@@ -86,7 +80,6 @@ wrong_account_phone = {
 wrong_account_email = {
     "firstname": "Harun",
     "lastname": "Gachanja",
-    "surname": "Gitundu",
     "phone": "0711371265",
     "location": "Nakuru, Njoro",
     "portfolio": "Education",
@@ -100,7 +93,6 @@ wrong_account_email = {
 wrong_account_password = {
     "firstname": "Harun",
     "lastname": "Gachanja",
-    "surname": "Gitundu",
     "phone": "0711371265",
     "location": "Nakuru, Njoro",
     "portfolio": "Education",
@@ -114,7 +106,6 @@ wrong_account_password = {
 phone_exists = {
     "firstname": "Harun",
     "lastname": "Gachanja",
-    "surname": "Gitundu",
     "phone": "0711371265",
     "location": "Nakuru, Njoro",
     "portfolio": "Education",
@@ -128,7 +119,6 @@ phone_exists = {
 username_exists = {
     "firstname": "Harun",
     "lastname": "Gachanja",
-    "surname": "Gitundu",
     "phone": "0797568564",
     "location": "Nakuru, Njoro",
     "portfolio": "Education",
@@ -142,7 +132,6 @@ username_exists = {
 email_exists = {
     "firstname": "Harun",
     "lastname": "Gachanja",
-    "surname": "Gitundu",
     "phone": "0711853324",
     "location": "Nakuru, Njoro",
     "portfolio": "Education",
@@ -171,4 +160,91 @@ wrong_password_login = {
 wrong_email_login = {
     "email": "harungitundu94@gmail.com",
     "password": "Harun20930988!"
+}
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ NEW TRIP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+new_trip = {
+    "booked_by": "1",
+    "pickup": "Nakuru",
+    "destination": "Nairobi",
+    "means": "air"
+}
+
+new_trip2 = {
+    "booked_by": "2",
+    "pickup": "Nakuru",
+    "destination": "Nairobi",
+    "means": "air"
+}
+
+wrong_trips_keys = {
+    "booked_": "1",
+    "pickup": "Nakuru",
+    "destination": "Nairobi",
+    "means": "air"
+}
+
+wrong_trip_booked_by_input = {
+    "booked_by": "username",
+    "pickup": "Nakuru",
+    "destination": "Nairobi",
+    "means": "air"
+
+}
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@ NEW LODGE @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+new_lodge = {
+    "booked_by": "1",
+    "hotel_name": "1",
+    "lodge_no": 4
+}
+
+new_lodge2 = {
+    "booked_by": "2",
+    "hotel_name": "2",
+    "lodge_no": 4
+}
+
+wrong_lodges_keys = {
+    "booked_": "1",
+    "hotel_name": "1",
+    "lodge_no": 4
+}
+
+wrong_lodge_booked_by_input = {
+    "booked_by": "username",
+    "hotel_name": "1",
+    "lodge_no": 4
+
+}
+
+wrong_lodge_hotel_name_input = {
+    "booked_by": "1",
+    "hotel_name": "savannah",
+    "lodge_no": 4
+
+}
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ NEW HOTEL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+new_hotel = {
+    "name": "savannah",
+    "location": "Nairobi, Kenya",
+    "lodges": "17",
+    "conference_rooms": "4",
+    "img_url": "picture.png",
+    "category": "5 star"
+}
+
+wrong_hotels_keys = {
+    "me": "savannah",
+    "location": "Nairobi, Kenya",
+    "lodges": "17",
+    "conference_rooms": "4",
+    "img_url": "picture.png",
+    "category": "5 star"
 }

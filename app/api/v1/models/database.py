@@ -27,7 +27,38 @@ class Database:
                 username varchar NOT NULL,
                 email varchar NOT NULL,
                 password varchar NOT NULL
+            )""",
+            """
+            CREATE TABLE IF NOT EXISTS hotels(
+                hotel_id serial UNIQUE,
+                name varchar NOT NULL,
+                location varchar NOT NULL,
+                lodges varchar NOT NULL,
+                conference_rooms varchar NOT NULL,
+                img_url varchar NOT NULl,
+                category varchar NOT NULL
+            )""",
+            """
+            CREATE TABLE IF NOT EXISTS trips(
+                trip_id serial UNIQUE,
+                booked_by integer NOT NULl DEFAULT 0,
+                pickup varchar NOT NULL,
+                destination varchar NOT NULL,
+                means varchar NOT NULL,
+                CONSTRAINT booked_by_fk FOREIGN KEY(booked_by) REFERENCES users(user_id),
+                CONSTRAINT trip_composite_key PRIMARY KEY(booked_by)
+            )""",
+            """
+            CREATE TABLE IF NOT EXISTS lodges(
+                lodge_id serial UNIQUE,
+                booked_by integer NOT NULl DEFAULT 0,
+                hotel_name integer NOT NULl DEFAULT 0,
+                lodge_no integer NOT NULL,
+                CONSTRAINT booked_by_fk FOREIGN KEY(booked_by) REFERENCES users(user_id),
+                CONSTRAINT hotel_name_fk FOREIGN KEY(hotel_name) REFERENCES hotels(hotel_id),
+                CONSTRAINT lodge_composite_key PRIMARY KEY(booked_by,hotel_name)
             )"""
+
         ]
         try:
             for query in queries:
@@ -37,10 +68,22 @@ class Database:
         except Exception as e:
             return e
 
+    def fetch(self, query):
+        """Manipulate query."""
+
+        self.curr.execute(query)
+        fetch_all = self.curr.fetchall()
+        self.conn.commit()
+        self.curr.close()
+        return fetch_all
+
     def destroy_table(self):
         """Destroy tables"""
         users = "DROP TABLE IF EXISTS  users CASCADE"
-        queries = [users]
+        trips = "DROP TABLE IF EXISTS  trips CASCADE"
+        lodges = "DROP TABLE IF EXISTS  lodges CASCADE"
+        hotels = "DROP TABLE IF EXISTS  hotels CASCADE"
+        queries = [users, trips, lodges, hotels]
         try:
             for query in queries:
                 self.curr.execute(query)
