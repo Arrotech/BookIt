@@ -26,7 +26,7 @@ document.getElementById('bookLodge').onclick = () => {
         let hotel_name = document.getElementById('hotel_name').value;
         let lodge_no = document.getElementById('lodge_no').value;
 
-        fetch('http://localhost:5000/api/v1/lodges', {
+        fetch('https://bookit-api-app.herokuapp.com/api/v1/lodges', {
             method: 'POST',
             headers : {
             Accept: 'application/json',
