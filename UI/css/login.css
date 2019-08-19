@@ -1,12 +1,13 @@
 body{
-  background-color: grey;
   font-family:'Trebuchet MS';
   height:100vh;
-  background-image: url('bookshop.jpg');
+  /* background: #25252525; */
+  background-image: url('hotel2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
+
 .main{
   height:350px;
   width:700px;
@@ -59,6 +60,7 @@ body{
 .left form input[type="submit"]{
   background-color:#000000;
   color:#fff;
+  padding: 1px;
   font-weight: bold;
 }
 

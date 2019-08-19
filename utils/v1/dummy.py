@@ -3,13 +3,9 @@ create_account = {
     "firstname": "Peter",
     "lastname": "Gitundu",
     "phone": "0720930988",
-    "location": "Nakuru, Njoro",
-    "portfolio": "Education",
-    "occupation": "carpenter",
     "username": "Peter254",
     "email": "petergitundu94@gmail.com",
-    "password": "Peter20930988!",
-    "cost": 2500.50
+    "password": "Peter20930988!"
 }
 
 new_account = {
