@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payment</title>
+    <link rel="stylesheet" type="text/css" href="css/checkout.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  </head>
+  <body>
+    <div id="header">
+      <h3>bookIt.com</h3>
+    </div>
+  <div id="#nav">
+  <nav>
+      <div>
+        <ul>
+          <li class="home"><a href="index.html">BOOKIT</a></li>
+          <li class="nav-btn"><a href="add_hotel.html">HOTELS</a></li>
+          <li class="nav-btn"><a href="book_lodge.html">LODGES</a></li>
+          <li class="nav-btn"><a href="book_trip.html">TRIPS</a></li>
+          <li class="nav-btn"><a href="#about">ABOUT</a></li>
+          <li class="nav-btn"><a href="#contact">CONTACT</a></li>
+          <li class="nav-btn"><a href="login.html">LOGIN</a></li>
+        </ul>
+      </div>
+  </nav>
+  </div>
+    <div class="wrapper">
+      <div class="payment">
+        <div class="payment-logo">
+          <p>c</p>
+          </div>
+        <h2>Credit Card</h2>
+        <div class="form">
+          <div class="card space icon-relative">
+            <label class=""="label">Card holder:</label>
+            <input type="text" class="input" name="card_holder" placeholder="Arrotech">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="card space icon-relative">
+            <label class=""="label">Card number:</label>
+            <input type="text" class="input" name="card_number" placeholder="Card Number" data-mask="0000 0000 0000 0000">
+            <i class="far fa-credit-card"></i>
+          </div>
+          <div class="card-grp space">
+              <div class="card-item icon-relative">
+                <label class=""="label">Expiry date:</label>
+                <input type="text" class="input" name="expiry_date" placeholder="00 / 00" data-mask="00 / 00">
+                <i class="far fa-calendar-alt"></i>
+              </div>
+              <div class="card-item icon-relative">
+                <label class=""="label">CVC:</label>
+                <input type="text" class="input" name="cvc" placeholder="000" data-mask="000">
+                <i class="fas fa-lock"></i>
+              </div>
+          </div>
+          <div class="btn">
+            pay
+          </div>
+          </div>
+        </div>
+      </div>
+      <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+      <footer class="footer-distributed">
+
+            <div class="footer-left">
+              <h3>About<span>BookIt</span></h3>
+
+              <p class="footer-links">
+                <a href="index.html">Home</a>
+                |
+                <a href="add_hotel.html">Hotels</a>
+                |
+                <a href="book_lodge.html">Lodges</a>
+                |
+                <a href="book_trip.html">Trips</a>
+              </p>
+
+              <p class="footer-company-name">© 2019 BookIt Ltd.</p>
+            </div>
+
+            <div class="footer-center">
+              <div>
+                <i class="fa fa-map-marker"></i>
+                  <p><span>389 - Racecourse,
+                   Bldg. Name. Arrotech</span>
+                  Nakuru, Kenya - 20100</p>
+              </div>
+
+              <div>
+                <i class="fa fa-phone"></i>
+                <p>+254 711 371 265</p>
+              </div>
+              <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:arrotechdesign@gmail.com">arrotechdesign@gmail.com</a></p>
+              </div>
+            </div>
+            <div class="footer-right">
+              <p class="footer-company-about">
+                <span>About the company</span>
+                We offer tour, travel and booking services around the world. Book for these services with only a few clicks of a button.</p>
+              <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+              </div>
+            </div>
+        </footer>
+  </body>
+</html>

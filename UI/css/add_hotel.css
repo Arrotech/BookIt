@@ -1,0 +1,9 @@
+body{
+  font-family:'Trebuchet MS';
+  height:100vh;
+  /* background: #25252525; */
+  background-image: url('hotel3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
