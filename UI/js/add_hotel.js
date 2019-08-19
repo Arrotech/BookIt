@@ -29,7 +29,7 @@ document.getElementById('addHotel').onclick = () => {
         let img_url = document.getElementById('img_url').value;
         let category = document.getElementById('category').value;
 
-        fetch('http://localhost:5000/api/v1/hotels', {
+        fetch('https://bookit-api-app.herokuapp.com/api/v1/hotels', {
             method: 'POST',
             headers : {
             Accept: 'application/json',

@@ -16,7 +16,7 @@ document.getElementById('login').onclick = () => {
         event.preventDefault();
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
-        fetch('http://localhost:5000/api/v1/auth/login', {
+        fetch('https://bookit-api-app.herokuapp.com/api/v1/auth/login', {
             method: 'POST',
             headers : {
             Accept: 'application/json',

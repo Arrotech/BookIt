@@ -27,7 +27,7 @@ document.getElementById('bookTrip').onclick = () => {
         let destination = document.getElementById('destination').value;
         let means = document.getElementById('means').value;
 
-        fetch('http://localhost:5000/api/v1/trips', {
+        fetch('https://bookit-api-app.herokuapp.com/api/v1/trips', {
             method: 'POST',
             headers : {
             Accept: 'application/json',
