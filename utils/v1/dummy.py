@@ -167,6 +167,10 @@ new_trip = {
     "means": "air"
 }
 
+cancel_trip = {
+    "status": "cancelled"
+}
+
 new_trip2 = {
     "booked_by": "2",
     "pickup": "Nakuru",

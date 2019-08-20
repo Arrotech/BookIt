@@ -45,6 +45,7 @@ class Database:
                 pickup varchar NOT NULL,
                 destination varchar NOT NULL,
                 means varchar NOT NULL,
+                status varchar NOT NULL, 
                 CONSTRAINT booked_by_fk FOREIGN KEY(booked_by) REFERENCES users(user_id),
                 CONSTRAINT trip_composite_key PRIMARY KEY(booked_by)
             )""",
