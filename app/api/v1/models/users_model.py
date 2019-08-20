@@ -30,10 +30,10 @@ class UsersModel(Database):
     def get_users(self):
         """Request all users."""
         self.curr.execute(""" SELECT * FROM users""")
-        user = self.curr.fetchone()
+        users = self.curr.fetchone()
         self.conn.commit()
         self.curr.close()
-        return json.dumps(user, default=str)
+        return json.dumps(users, default=str)
 
     def get_username(self, username):
         """Request a single user with specific Username."""

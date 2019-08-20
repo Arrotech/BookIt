@@ -21,6 +21,42 @@ class TestUsersAccount(BaseTest):
         self.assertEqual(result['message'], 'Account created successfully!')
         assert response.status_code == 201
 
+    def test_get_users(self):
+        """Test getting all users."""
+
+        response = self.client.post(
+            '/api/v1/auth/register', data=json.dumps(new_account), content_type='application/json',
+            headers=self.get_token())
+        response1 = self.client.get(
+            '/api/v1/auth/users', content_type='application/json',
+            headers=self.get_token())
+        result = json.loads(response1.data.decode())
+        self.assertEqual(result['message'], 'success')
+        assert response1.status_code == 200
+
+    def test_get_user(self):
+        """Test getting a specific user."""
+
+        response = self.client.post(
+            '/api/v1/auth/register', data=json.dumps(new_account), content_type='application/json',
+            headers=self.get_token())
+        response1 = self.client.get(
+            '/api/v1/auth/users/Arrotech', content_type='application/json',
+            headers=self.get_token())
+        result = json.loads(response1.data.decode())
+        self.assertEqual(result['message'], 'success')
+        assert response1.status_code == 200
+
+    def test_getting_unexisting_user(self):
+        """Test getting a user does not exists."""
+
+        response1 = self.client.get(
+            '/api/v1/auth/users/kamchu', content_type='application/json',
+            headers=self.get_token())
+        result = json.loads(response1.data.decode())
+        self.assertEqual(result['message'], 'User not found')
+        assert response1.status_code == 404
+
     def test_create_account_keys(self):
         """Test create account json keys."""
 
@@ -135,6 +171,19 @@ class TestUsersAccount(BaseTest):
 
         response1 = self.client.post(
             '/api/v1/auth/login', data=json.dumps(wrong_email_login), content_type='application/json',
+            headers=self.get_token())
+        result = json.loads(response1.data.decode())
+        self.assertEqual(result['message'], 'Invalid Email or Password')
+        assert response1.status_code == 401
+
+    def test_login_with_wrong_password(self):
+        """Test login with wrong password."""
+
+        response = self.client.post(
+            '/api/v1/auth/register', data=json.dumps(new_account), content_type='application/json',
+            headers=self.get_token())
+        response1 = self.client.post(
+            '/api/v1/auth/login', data=json.dumps(wrong_password_login), content_type='application/json',
             headers=self.get_token())
         result = json.loads(response1.data.decode())
         self.assertEqual(result['message'], 'Invalid Email or Password')
