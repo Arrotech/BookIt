@@ -16,17 +16,22 @@ Below are the Endpoints for the application.
 | ------------- |:-------------:| -----:|
 | /api/v1/auth/register | Create user| POST |
 | /api/v1/auth/login | Login to account |GET|
-| /api/v1/users | Get all Users | GET |
-| /api/v1/users/username | Get a specific user | GET |
+| /api/v1/auth/refresh | Get access token | POST |
+| /api/v1/auth/protected | Get logged in user email | GET |
+| /api/v1/auth/users | Get all Users | GET |
+| /api/v1/auth/users/username | Get a specific user | GET |
 | /api/v1/hotels |  Add a hotel | POST |
 | /api/v1/hotels | Get all hotels | GET |
 | /api/v1/hotels/name | Get a specific hotel by name | GET |
 | /api/v1/lodges |  Add a lodge | POST |
 | /api/v1/lodges | Get all lodges | GET |
 | /api/v1/lodges/booked_by | Get a specific lodge | GET |
-| /api/v1/trips |  Add a trip | POST |
+| /api/v1/trips |  Book a trip | POST |
 | /api/v1/trips | Get all trips | GET |
 | /api/v1/trips/booked_by | Get specific trip | GET |
+| /api/v1/trips/cancel/trip_id | Cancel specific trip | PUT |
+| /api/v1/trips/complete/trip_id | Complete specific trip | PUT |
+| /api/v1/trips/in-progress/trip_id | Mark progress of a specific trip | PUT |
 
 
 **TOOLS TO BE USED IN THE DEVELOPMENT**
