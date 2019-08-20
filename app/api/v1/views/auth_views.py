@@ -100,3 +100,28 @@ def refresh():
 def protected():
     email = get_jwt_identity()
     return jsonify(logged_in_as=email), 200
+
+@auth_v1.route("/users", methods=['GET'])
+@jwt_required
+def get_users():
+    return make_response(jsonify({
+    "message": "success",
+    "status": "200",
+    "users": json.loads(UsersModel().get_users())
+    }), 200)
+
+@auth_v1.route("/users/<string:username>", methods=['GET'])
+@jwt_required
+def  get_user(username):
+    user = UsersModel().get_username(username)
+    user = json.loads(user)
+    if user:
+        return make_response(jsonify({
+        "message": "success",
+        "status": "200",
+        "user": user
+        }), 200)
+    return make_response(jsonify({
+    "message": "User not found",
+    "status": "404"
+    }), 404)
