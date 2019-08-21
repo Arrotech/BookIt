@@ -26,7 +26,9 @@ class Database:
                 phone varchar NOT NULL,
                 username varchar NOT NULL,
                 email varchar NOT NULL,
-                password varchar NOT NULL
+                password varchar NOT NULL,
+                role varchar NOT NULL,
+                date TIMESTAMP
             )""",
             """
             CREATE TABLE IF NOT EXISTS hotels(
@@ -36,7 +38,8 @@ class Database:
                 lodges varchar NOT NULL,
                 conference_rooms varchar NOT NULL,
                 img_url varchar NOT NULl,
-                category varchar NOT NULL
+                category varchar NOT NULL,
+                date TIMESTAMP
             )""",
             """
             CREATE TABLE IF NOT EXISTS trips(
@@ -45,7 +48,8 @@ class Database:
                 pickup varchar NOT NULL,
                 destination varchar NOT NULL,
                 means varchar NOT NULL,
-                status varchar NOT NULL, 
+                status varchar NOT NULL,
+                date TIMESTAMP,
                 CONSTRAINT booked_by_fk FOREIGN KEY(booked_by) REFERENCES users(user_id),
                 CONSTRAINT trip_composite_key PRIMARY KEY(booked_by)
             )""",
@@ -55,6 +59,8 @@ class Database:
                 booked_by integer NOT NULl DEFAULT 0,
                 hotel_name integer NOT NULl DEFAULT 0,
                 lodge_no integer NOT NULL,
+                status varchar NOT NULL,
+                date TIMESTAMP,
                 CONSTRAINT booked_by_fk FOREIGN KEY(booked_by) REFERENCES users(user_id),
                 CONSTRAINT hotel_name_fk FOREIGN KEY(hotel_name) REFERENCES hotels(hotel_id),
                 CONSTRAINT lodge_composite_key PRIMARY KEY(booked_by,hotel_name)
@@ -77,6 +83,15 @@ class Database:
         self.conn.commit()
         self.curr.close()
         return fetch_all
+
+    def create_admin(self):
+        """Create a deafult admin user."""
+        query = "INSERT INTO users(firstname, lastname, phone, username, email, password, role, date)\
+        VALUES('Harun','Gachanja','0711371265','Arrotech254','harun@admin.com','pbkdf2:sha256:50000$aNlgJU9E$bf5d2dc9783e38f905618aacd50eb55b098f282dc6b03834aee7c4f80a9100e8','admin','2019-08-21 08:34:59.942187')"
+
+        self.curr.execute(query)
+        self.conn.commit()
+        self.curr.close()
 
     def destroy_table(self):
         """Destroy tables"""

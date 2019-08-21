@@ -16,14 +16,15 @@ class HotelsModel(Database):
         self.conference_rooms = conference_rooms
         self.img_url = img_url
         self.category = category
+        self.date = datetime.now()
 
     def save(self):
         """Save information of the hotel."""
 
         self.curr.execute(
-            ''' INSERT INTO hotels(name, location, lodges, conference_rooms, img_url, category)\
-                VALUES('{}','{}','{}','{}','{}','{}') RETURNING name, location, lodges, conference_rooms, img_url, category''' \
-                .format(self.name, self.location, self.lodges, self.conference_rooms, self.img_url, self.category))
+            ''' INSERT INTO hotels(name, location, lodges, conference_rooms, img_url, category, date)\
+                VALUES('{}','{}','{}','{}','{}','{}','{}') RETURNING name, location, lodges, conference_rooms, img_url, category, date''' \
+                .format(self.name, self.location, self.lodges, self.conference_rooms, self.img_url, self.category, self.date))
         hotel = self.curr.fetchone()
         self.conn.commit()
         self.curr.close()

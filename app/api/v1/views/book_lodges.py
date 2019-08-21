@@ -68,3 +68,75 @@ def get_lodge(booked_by):
         "status": "404",
         "message": "lodge not found"
         }), 404)
+
+@lodges_v1.route('/lodges/cancel/<int:lodge_id>', methods=['PUT'])
+@jwt_required
+def cancel_booking(lodge_id):
+    '''cancel a specific booking.'''
+
+    lodge = LodgesModel().get_lodge_by_id(lodge_id)
+    if lodge:
+        status = lodge['status']
+        if ((status != "Booked") and (status != "Active") and (status != "Completed")):
+            return make_response(jsonify({
+                "status": "200",
+                "message": "Lodging already {}".format(status)
+            }), 400)
+        LodgesModel().cancel(lodge_id)
+        return make_response(jsonify({
+            "status": "200",
+            "message": "Lodging cancelled"
+        }), 200)
+
+    return make_response(jsonify({
+        "status": "404",
+        "message": "Lodge not found"
+    }), 404)
+
+@lodges_v1.route('/lodges/complete/<int:lodge_id>', methods=['PUT'])
+@jwt_required
+def complete_lodging(lodge_id):
+    '''complete specific Lodging.'''
+
+    lodge = LodgesModel().get_lodge_by_id(lodge_id)
+    if lodge:
+        status = lodge['status']
+        if ((status != "Booked") and (status != "Active") and (status != "Cancelled")):
+            return make_response(jsonify({
+                "status": "200",
+                "message": "Lodging already {}".format(status)
+            }), 400)
+        LodgesModel().complete(lodge_id)
+        return make_response(jsonify({
+            "status": "200",
+            "message": "Lodging completed"
+        }), 200)
+
+    return make_response(jsonify({
+        "status": "404",
+        "message": "Lodge not found"
+    }), 404)
+
+@lodges_v1.route('/lodges/activate/<int:lodge_id>', methods=['PUT'])
+@jwt_required
+def activate_booking(lodge_id):
+    '''Activate a booking.'''
+
+    lodge = LodgesModel().get_lodge_by_id(lodge_id)
+    if lodge:
+        status = lodge['status']
+        if ((status != "Booked") and (status != "Completed") and (status != "Cancelled")):
+            return make_response(jsonify({
+                "status": "200",
+                "message": "Lodging already {}".format(status)
+            }), 400)
+        LodgesModel().activate(lodge_id)
+        return make_response(jsonify({
+            "status": "200",
+            "message": "Lodging is now activate"
+        }), 200)
+
+    return make_response(jsonify({
+        "status": "404",
+        "message": "Lodge not found"
+    }), 404)
