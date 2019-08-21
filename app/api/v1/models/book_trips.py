@@ -1,7 +1,7 @@
 import json
 from werkzeug.security import generate_password_hash
 from app.api.v1.models.database import Database
-import datetime
+from datetime import datetime
 import psycopg2
 
 
@@ -15,15 +15,16 @@ class TripsModel(Database):
         self.destination = destination
         self.means = means
         self.status = status
+        self.date = datetime.now()
 
     def save(self):
         """Save information of the trip."""
 
         try:
             self.curr.execute(
-                ''' INSERT INTO trips(booked_by, pickup, destination, means, status)\
-                    VALUES('{}','{}','{}','{}','{}') RETURNING booked_by, pickup, destination, means, status''' \
-                    .format(self.booked_by, self.pickup, self.destination, self.means, self.status))
+                ''' INSERT INTO trips(booked_by, pickup, destination, means, status, date)\
+                    VALUES('{}','{}','{}','{}','{}','{}') RETURNING booked_by, pickup, destination, means, status, date''' \
+                    .format(self.booked_by, self.pickup, self.destination, self.means, self.status, self.date))
             trip = self.curr.fetchone()
             self.conn.commit()
             self.curr.close()

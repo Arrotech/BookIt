@@ -206,3 +206,36 @@ class TestUsersAccount(BaseTest):
         response1 = self.client.get(
             '/api/v1/auth/protected', content_type='application/json', headers=self.get_token())
         assert response1.status_code == 200
+
+    def test_promote_user(self):
+        """Promote user to be an admin."""
+
+        response = self.client.post(
+            '/api/v1/auth/register', data=json.dumps(new_account), content_type='application/json',
+            headers=self.get_token())
+        response2 = self.client.put(
+            "/api/v1/auth/users/Arrotech", content_type='application/json', headers=self.get_token())
+        result = json.loads(response2.data.decode())
+        self.assertEqual(result['message'], 'You have been promoted to be an admin')
+        assert response2.status_code == 200
+
+    def test_promoting_admin_user(self):
+        '''test promoting admin user.'''
+
+        response = self.client.post(
+            '/api/v1/auth/register', data=json.dumps(new_account), content_type='application/json',
+            headers=self.get_token())
+        response2 = self.client.put(
+            "/api/v1/auth/users/Arrotech", content_type='application/json', headers=self.get_token())
+        response3 = self.client.put(
+            "/api/v1/auth/users/Arrotech", content_type='application/json', headers=self.get_token())
+        self.assertEqual(response3.status_code, 400)
+        self.assertEqual(json.loads(response3.data)['message'], "User is already an admin")
+
+    def test_promoting_unexisting_user(self):
+        '''test promoting unexisting user.'''
+
+        response3 = self.client.put(
+            "/api/v1/auth/users/Arrotech", content_type='application/json', headers=self.get_token())
+        self.assertEqual(response3.status_code, 404)
+        self.assertEqual(json.loads(response3.data)['message'], "User not found")

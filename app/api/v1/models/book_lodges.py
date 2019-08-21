@@ -1,27 +1,29 @@
 import json
 from werkzeug.security import generate_password_hash
 from app.api.v1.models.database import Database
-import datetime
+from datetime import datetime
 import psycopg2
 
 
 class LodgesModel(Database):
     """A registered user can book a new lodge."""
 
-    def __init__(self, booked_by=None, hotel_name=None, lodge_no=None):
+    def __init__(self, booked_by=None, hotel_name=None, lodge_no=None, status="Booked"):
         super().__init__()
         self.booked_by = booked_by
         self.hotel_name = hotel_name
         self.lodge_no = lodge_no
+        self.status = status
+        self.date = datetime.now()
 
     def save(self):
         """Save information of the lodge."""
 
         try:
             self.curr.execute(
-                ''' INSERT INTO lodges(booked_by, hotel_name, lodge_no)\
-                    VALUES('{}','{}',{}) RETURNING booked_by, hotel_name, lodge_no''' \
-                    .format(self.booked_by, self.hotel_name, self.lodge_no))
+                ''' INSERT INTO lodges(booked_by, hotel_name, lodge_no, status, date)\
+                    VALUES('{}','{}',{},'{}','{}') RETURNING booked_by, hotel_name, lodge_no, status, date''' \
+                    .format(self.booked_by, self.hotel_name, self.lodge_no, self.status, self.date))
             lodge = self.curr.fetchone()
             self.conn.commit()
             self.curr.close()
@@ -59,3 +61,42 @@ class LodgesModel(Database):
         self.conn.commit()
         self.curr.close()
         return json.dumps(lodge, default=str)
+
+    def get_lodge_by_id(self, lodge_id):
+        """Get a lodge with specific id."""
+
+        self.curr.execute(''' SELECT * FROM lodges WHERE lodge_id=%s''', (lodge_id,))
+        trip = self.curr.fetchone()
+        self.conn.commit()
+        self.curr.close()
+        return trip
+
+    def cancel(self, lodge_id):
+        """ cancel a specific lodge."""
+        self.curr.execute(
+            """
+        UPDATE lodges SET status=%s WHERE lodge_id=%s
+        """, ('Cancelled', lodge_id))
+
+        self.conn.commit()
+        self.curr.close()
+
+    def complete(self, lodge_id):
+        """ complete a specific lodge."""
+        self.curr.execute(
+            """
+        UPDATE lodges SET status=%s WHERE lodge_id=%s
+        """, ('Completed', lodge_id))
+
+        self.conn.commit()
+        self.curr.close()
+
+    def activate(self, lodge_id):
+        """ activate a booked lodge."""
+        self.curr.execute(
+            """
+        UPDATE lodges SET status=%s WHERE lodge_id=%s
+        """, ('Active', lodge_id))
+
+        self.conn.commit()
+        self.curr.close()

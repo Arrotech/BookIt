@@ -12,13 +12,9 @@ new_account = {
     "firstname": "Harun",
     "lastname": "Gachanja",
     "phone": "0711371265",
-    "location": "Nakuru, Njoro",
-    "portfolio": "Education",
-    "occupation": "carpenter",
     "username": "Arrotech",
     "email": "harungachanjagitundu@gmail.com",
-    "password": "Harun20930988!",
-    "cost": 2500.50
+    "password": "Harun20930988!"
 }
 
 wrong_account_keys = {

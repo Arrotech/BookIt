@@ -4,6 +4,7 @@ import datetime
 from werkzeug.security import check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, create_refresh_token, jwt_refresh_token_required, get_raw_jwt
 from app.api.v1.models.users_model import UsersModel
+from utils.v1.authorization import admin_required
 from utils.v1.validations import raise_error, check_register_keys, is_valid_email,\
  is_valid_phone, is_valid_password, check_login_keys
 
@@ -124,4 +125,29 @@ def  get_user(username):
     return make_response(jsonify({
     "message": "User not found",
     "status": "404"
+    }), 404)
+
+@auth_v1.route('/users/<string:username>', methods=['PUT'])
+@jwt_required
+def promote_user(username):
+    '''promote user to admin.'''
+
+    user = UsersModel().get_username(username)
+    user = json.loads(user)
+    if user:
+        role = user['role']
+        if (role != "user"):
+            return make_response(jsonify({
+                "status": "200",
+                "message": "User is already an {}".format(role)
+            }), 400)
+        UsersModel().promote(username)
+        return make_response(jsonify({
+            "status": "200",
+            "message": "You have been promoted to be an admin"
+        }), 200)
+
+    return make_response(jsonify({
+        "status": "404",
+        "message": "User not found"
     }), 404)

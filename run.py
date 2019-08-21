@@ -15,6 +15,12 @@ def create():
     Database().create_table()
 
 @app.cli.command()
+def admin():
+    """Create an admin."""
+
+    Database().create_admin()
+
+@app.cli.command()
 def destroy():
     """Destroy tables."""
 
