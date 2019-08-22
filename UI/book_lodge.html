@@ -14,25 +14,34 @@
 </head>
 
 <body>
+  <div class="leftnav">
+      <img src="img/avatar.png" alt="Avatar" class="avatar"><br>
+      <hr>
+      <a class="far fa-clone" href="get_hotels.html"> Hotels</a><br>
+      <a class="far fa-clone" href="book_lodge.html"> Lodges</a><br>
+      <a class=" fas fa-align-justify" href="book_trip.html"> Trips</a><br>
+      <a class="fas fa-user-edit" href="#"> Profile</a><br>
+      <a class="  fas fa-users" href="#"> Help</a><br>
+      <a class="far fa-calendar-alt" href="#"> Calendar</a><br>
+      <a class="  fas fa-wrench" href="#"> Settings</a><br>
+      <a class="far fa-clock" id="logout" onclick="on_logout()" href="#"> Sign Out</a><br>
+  </div>
+  <div class="main">
   <div id="header">
     <h3>bookIt.com</h3>
   </div>
-<div id="nav">
-<nav>
-    <div>
+  <div id="navbar">
+    <nav>
       <ul>
         <li class="home"><a href="index.html">BOOKIT</a></li>
-        <li class="nav-btn"><a href="add_hotel.html">HOTELS</a></li>
+        <li class="nav-btn"><a href="get_hotels.html">HOTELS</a></li>
         <li class="nav-btn"><a href="book_lodge.html">LODGES</a></li>
         <li class="nav-btn"><a href="book_trip.html">TRIPS</a></li>
-        <li class="nav-btn"><a href="#about">ABOUT</a></li>
-        <li class="nav-btn"><a href="#contact">CONTACT</a></li>
-        <li class="nav-btn"><a href="login.html">LOGIN</a></li>
+        <li class="nav-btn"><a href="">CONTACT</a></li>
       </ul>
-    </div>
-</nav>
-</div>
-<div class="main">
+    </nav>
+  </div>
+<div class="main-content">
   <div class="left">
     <form>
         <div class="container">
@@ -108,5 +117,6 @@
         </div>
       </div>
   </footer>
+</div>
 </body>
 </html>

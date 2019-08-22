@@ -22,7 +22,7 @@ document.getElementById('register').onclick = () => {
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
 
-        fetch('https://bookit-api-app.herokuapp.com/api/v1/auth/register', {
+        fetch('http://localhost:5000/api/v1/auth/register', {
             method: 'POST',
             headers : {
                 Accept: 'application/json',

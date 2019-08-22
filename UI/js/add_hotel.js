@@ -29,7 +29,7 @@ document.getElementById('addHotel').onclick = () => {
         let img_url = document.getElementById('img_url').value;
         let category = document.getElementById('category').value;
 
-        fetch('https://bookit-api-app.herokuapp.com/api/v1/hotels', {
+        fetch('http://localhost:5000/api/v1/hotels', {
             method: 'POST',
             headers : {
             Accept: 'application/json',
@@ -40,9 +40,13 @@ document.getElementById('addHotel').onclick = () => {
         }).then((res) => res.json())
         .then((data) =>  {
             console.log(data);
+            let hotel = data['hotel'];
             let status = data['status'];
             let message = data['message'];
             if (status === '201'){
+                localStorage.setItem("hotel", JSON.stringify(data[0]));
+                localStorage.setItem('hotel', data.hotel);
+                localStorage.setItem('name', data..name);
                 onSuccess('Hotel added successfully');
             }else{
                 raiseError(message);

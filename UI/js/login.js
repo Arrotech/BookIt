@@ -16,7 +16,7 @@ document.getElementById('login').onclick = () => {
         event.preventDefault();
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
-        fetch('https://bookit-api-app.herokuapp.com/api/v1/auth/login', {
+        fetch('http://localhost:5000/api/v1/auth/login', {
             method: 'POST',
             headers : {
             Accept: 'application/json',
@@ -30,12 +30,21 @@ document.getElementById('login').onclick = () => {
             let status = data['status'];
             let message = data['message'];
             if (status === '200'){
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('user', data.user);
-                localStorage.setItem('username', data.user.username);
-                localStorage.setItem('email', data.user.email);
-                onSuccess('Signed in successfully!');
-                window.location.replace('add_hotel.html');
+              if (email === 'admin@admin.com'){
+                  localStorage.setItem('token', data.token);
+                  localStorage.setItem('user', data.user);
+                  localStorage.setItem('username', data.user.username);
+                  localStorage.setItem('email', data.user.email);
+                  onSuccess('Signed in successfully!');
+                  window.location.replace('admin.html');
+              }else {
+                  localStorage.setItem('token', data.token);
+                  localStorage.setItem('user', data.user);
+                  localStorage.setItem('username', data.user.username);
+                  localStorage.setItem('email', data.user.email);
+                  onSuccess('Signed in successfully!');
+                  window.location.replace('user.html');
+              }
             }else{
                 raiseError(message);
             }
