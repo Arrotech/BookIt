@@ -200,6 +200,118 @@ transition: 0.5s;
 	border-radius: 5px;
 }
 
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TABLES @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+table {
+  border-collapse: collapse;
+	margin-left: 20px;
+}
+
+table, th, td {
+  border: 1px solid white;
+}
+
+th{
+  text-align: left;
+  padding: 5px;
+  /* border-bottom: 1px solid #ddd; */
+  background-color: #000000;
+  color: white;
+  font-size: 18px;
+}
+
+td {
+  height: 10px;
+  vertical-align: bottom;
+  padding: 5px;
+  text-align: left;
+  font-size: 16px;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+tr:hover {
+  background-color: #d65050;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {
+  background-color: #fff;
+}
+
+.view{
+	background: #08abdd;
+	width: 150px;
+	padding: 10px;
+	margin-left: 20px;
+
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ LEFT SIDEBAR @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+/*lfet sidebar*/
+.leftnav {
+  height: 100%;
+  width: 197px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.leftnav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #818181;
+  display: block;
+  font-weight: bold;
+  margin-left: 25px;
+}
+
+.leftnav img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+.leftnav a:hover {
+  color: #08abdd;
+}
+
+.main {
+  margin-left: 190px;
+  font-size: 14px;
+  padding: 0px 10px;
+  text-align: left;
+}
+
+@media screen and (max-height: 450px) {
+  .leftnav {padding-top: 15px;}
+  .leftnav a {font-size: 18px;}
+}
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.school{
+  background: #fff;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+}
+
+
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ROW TWO @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 .row-two{

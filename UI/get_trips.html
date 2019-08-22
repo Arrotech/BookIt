@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>User</title>
+    <title>Trips</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -34,14 +34,27 @@
         <li class="nav-btn"><a href="get_hotels.html">HOTELS</a></li>
         <li class="nav-btn"><a href="get_lodges.html">LODGES</a></li>
         <li class="nav-btn"><a href="get_trips.html">TRIPS</a></li>
-        <li class="nav-btn"><a href="#about">ABOUT</a></li>
         <li class="nav-btn"><a href="#contact">CONTACT</a></li>
       </ul>
     </nav>
   </div><br>
   <br>
-  <div>
+  <br>
+  <br>
+  <br>
+  <div class="main-content">
+    <div class="left">
+      <div>
+          <input class="view" type="submit" id="getTrips" value="View Trips">
+          <div style="overflow-x:auto;">
+            <p id="output"></p>
+          </div>
+          <br>
+          <div id="snackbar"></div>
+      </div>
+      <script type="text/javascript" src="js/get_trips.js"></script>
     </div>
+  </div>
     <footer class="footer-distributed">
 
     			<div class="footer-left" id="footer">
